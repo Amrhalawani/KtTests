@@ -5,8 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.NumberFormatException
-import kotlin.math.log
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,36 +19,52 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         //  TestArray()
         //  TestWhen()
         //  testIF()
-//         testFor()
-       // testWhile()
-        testVararg(5,10,100,156,89,489)
+        //  testFor()
+        //  WhileStatement()
+        //  testVararg(5,10,100,156,89,489)
+        nulltests()
+
+    }
+
+    private fun nulltests() {
+        //-------------------------------------------
+        // var a1: String = null  //non-null reference
+        var a2: String? = null  //nullable reference
+        Log.e(TAG, "Safe call " + a2?.length) //safe call null
+        // --------------------------------------------
+        // Elvis Operator: When we have a nullable reference (if we want that) check if the value is null or not
+
+        var a3: String? = "amr"
+        var b = if (a3 != null) a3.length else -1
+        var c = a3?.length ?: -1
+        Log.e(TAG, "normal check = $b / elvis operator= $c")
 
 
     }
 
     private fun testVararg(vararg numbers: Int) {
         //limitless input parameters, you can add parameters as many as you likne
-        for (i in numbers){
-            Log.e(TAG,"" + i)
+        for (i in numbers) {
+            Log.e(TAG, "" + i)
         }
     }
 
-    private fun testWhile() {
+    private fun WhileStatement() {
         // you have to init it before dive in while statement
         var i = 0;
 //        while (i >= 5) {
 //            Log.e(TAG, "" + i)
 //            i++
 //        }
-        var j=0
+        var j = 0
         do {
             Log.e(TAG, "test" + j)
             j++
-        }
-        while (j<=2)
+        } while (j <= 2)
     }
 
     private fun testFor() {
@@ -85,9 +100,9 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..10) {
 
             // printing array elements having even index only
-            if (i==5) continue // continue means neglect or you can break(exit)
+            if (i == 5) continue // continue means neglect or you can break(exit)
             else
-            Log.e(TAG, "" + i)
+                Log.e(TAG, "" + i)
         }
 
 

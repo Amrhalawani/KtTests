@@ -19,14 +19,31 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         //  TestArray()
         //  TestWhen()
         //  testIF()
         //  testFor()
         //  WhileStatement()
         //  testVararg(5,10,100,156,89,489)
-        nulltests()
+        // nulltests()
+        dataClassTests()
+
+
+    }
+
+    private fun dataClassTests() {
+        var userD1 = UserD("ahmed", "ahmed@gmail.com", "Cairo", 32)
+        var userD2 = UserD("ahmed", "ahmed@gmail.com", "Cairo", 32)
+
+        Log.e(TAG, "" + userD1 + " / " + userD2)
+        Log.e(TAG, "" + (userD1 == userD2))
+
+        val userD3 = userD1.copy(age = 21) // fill the parameters changes and the rest will be the same
+        Log.e(TAG, "" + userD3)
+
+        val user = User()
+        user.name="ahmed"
+        Log.e(TAG, "" + user.name)
 
     }
 

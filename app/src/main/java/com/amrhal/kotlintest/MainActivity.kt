@@ -25,24 +25,56 @@ class MainActivity : AppCompatActivity() {
         //  testFor()
         //  WhileStatement()
         //  testVararg(5,10,100,156,89,489)
-        // nulltests()
-        dataClassTests()
+        //  nulltests()
+        //  dataClassTests()
+        //  objectTests() // singleton pattern
+            arraylistwithPair(1) // tuples (pair or triple)
 
+        //extension function
+        fun Int.squereInt(): Int {
+            return this * this
+        }
+        5.squereInt() //prints 25
+        10.squereInt() // prints 100
+        Log.e(TAG, ""+ 120.squereInt())
 
+    }
+
+    private fun arraylistwithPair(Id: Int): Pair<String, Int> {
+        var myList = ArrayList<Pair<String, Int>>()
+        myList.add(Pair("john", 95))
+        myList.add(Pair("Alex", 55))
+        myList.add(Pair("Sir Mohsen", 99))
+        myList.add(Pair("Amr", 88))
+        for (i in 0 until myList.size) {
+            Log.e(TAG, "" + myList[i])
+        }
+
+        return myList[Id]
+    }
+
+    private fun objectTests() {
+        var admin1 = Admin
+        admin1.name = "admin1"
+
+        var admin2 = Admin
+        admin2.name = "admin2"
+
+        Log.e(TAG, admin1.name + " / " + admin2.name)
     }
 
     private fun dataClassTests() {
         var userD1 = UserD("ahmed", "ahmed@gmail.com", "Cairo", 32)
         var userD2 = UserD("ahmed", "ahmed@gmail.com", "Cairo", 32)
 
-        Log.e(TAG, "" + userD1 + " / " + userD2)
+        Log.e(TAG, "$userD1 / $userD2")
         Log.e(TAG, "" + (userD1 == userD2))
 
         val userD3 = userD1.copy(age = 21) // fill the parameters changes and the rest will be the same
         Log.e(TAG, "" + userD3)
 
         val user = User()
-        user.name="ahmed"
+        user.name = "ahmed"
         Log.e(TAG, "" + user.name)
 
     }

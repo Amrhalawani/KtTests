@@ -10,36 +10,38 @@ import android.view.ViewGroup
 import com.amrhal.kotlintest.R
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import kotlinx.android.synthetic.main.frag1.*
+import kotlinx.android.synthetic.main.frag2.*
 
-class FirstFragment : Fragment() {
+class SecondFragment : Fragment() {
 
     companion object {
-        fun newInstance():FirstFragment{
-            return FirstFragment()
+        fun newInstance():SecondFragment{
+            return SecondFragment()
         }
     }
 
 
-    private val imageUrl = "https://static.pexels.com/photos/596940/pexels-photo-596940.jpeg"
+    private val imageUrl = "https://images.pexels.com/photos/163065/mobile-phone-android-apps-phone-163065.jpeg"
 
     fun loadImage(){
-        //during downloading we will see prograssbar and after finish prograssbar will become invisible
+        //during downloading, we will see the progress bar and after it finished progress bar will become invisible
 
-        progressBar.visibility = View.VISIBLE
+        progressBar2.visibility = View.VISIBLE
         GlideApp.with(activity!!).asBitmap()
             .load(Uri.parse(imageUrl))
-            .into(object: BitmapImageViewTarget(firstFragmentImageView){
-                override fun onResourceReady( // when the is ready
+            .into(object: BitmapImageViewTarget(secondFragmentImageView){
+                override fun onResourceReady( // when the is ready 
                     resource: Bitmap,
                     transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
                 ) {
                     super.onResourceReady(resource, transition)
-                progressBar.visibility = View.INVISIBLE
+                progressBar2.visibility = View.INVISIBLE
                 }
             })
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.frag1,container,false)
+        val view = inflater.inflate(R.layout.frag2,container,false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

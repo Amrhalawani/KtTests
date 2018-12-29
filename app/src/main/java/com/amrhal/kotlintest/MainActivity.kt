@@ -4,12 +4,13 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.amrhal.kotlintest.fragmentTest.Main2Activity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    val TAG: String = "tag"
+    var TAG: String = "tag"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         btn_calc.setOnClickListener {
             startActivity(intent)
         }
+
+
+        btn_fragment_activity.setOnClickListener {
+            startActivity( Intent(this, Main2Activity::class.java) )
+        }
+
 
         //  TestArray()
         //  TestWhen()
@@ -28,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         //  nulltests()
         //  dataClassTests()
         //  objectTests() // singleton pattern
-            arraylistwithPair(1) // tuples (pair or triple)
+        arraylistwithPair(1) // tuples (pair or triple)
 
         //extension function
         fun Int.squereInt(): Int {
@@ -36,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         }
         5.squereInt() //prints 25
         10.squereInt() // prints 100
-        Log.e(TAG, ""+ 120.squereInt())
+        Log.e(TAG, "" + 120.squereInt())
+
 
     }
 

@@ -23,6 +23,7 @@ class CalculatorActivity : AppCompatActivity() {
 
         btn_add.setOnClickListener {
             textView.text = "" + sum()
+
         }
 
         btn_sub.setOnClickListener {
